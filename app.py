@@ -14,6 +14,8 @@ st.set_page_config(page_title=cfg.app_name, layout="wide")
 st.title(cfg.app_name)
 
 # Sidebar: project management and navigation
+
+
 def ensure_session_defaults():
     st.session_state.setdefault('project', db.get_active_project())
     st.session_state.setdefault('page', 'Editor')
@@ -27,6 +29,7 @@ def ensure_session_defaults():
             st.session_state['project'] = projects[0]
             db.set_active_project(projects[0])
 
+
 ensure_session_defaults()
 
 if st.session_state.get('navigate_to_editor'):
@@ -36,25 +39,25 @@ if st.session_state.get('navigate_to_editor'):
 with st.sidebar:
     st.header('Projects')
     existing = db.list_projects()
-    current = st.selectbox('Active project', options=existing, index=(existing.index(st.session_state['project']) if st.session_state['project'] in existing and existing else 0) if existing else None, key='project_select')
+    current = st.selectbox('Active project', options=existing, index=(existing.index(
+        st.session_state['project']) if st.session_state['project'] in existing and existing else 0) if existing else None, key='project_select')
     if current and current != st.session_state['project']:
         st.session_state['project'] = current
         db.set_active_project(current)
 
-    new_name = st.text_input('New project name', value='', placeholder='Enter name…')
-    cols = st.columns([1,1])
-    with cols[0]:
-        if st.button('Create') and new_name.strip():
-            db.create_project(new_name.strip())
-            st.session_state['project'] = new_name.strip()
-    with cols[1]:
-        if st.button('Delete') and st.session_state['project']:
-            db.delete_project(st.session_state['project'])
-            st.session_state['project'] = db.get_active_project()
+    new_name = st.text_input(
+        'New project name', value='', placeholder='Enter name…')
+    if st.button('Create') and new_name.strip():
+        db.create_project(new_name.strip())
+        st.session_state['project'] = new_name.strip()
+    if st.button('Delete') and st.session_state['project']:
+        db.delete_project(st.session_state['project'])
+        st.session_state['project'] = db.get_active_project()
 
     st.markdown('---')
     st.header('Navigation')
-    st.radio('Go to', options=['Editor', 'History', 'Tone of Voice Admin'], label_visibility='collapsed', key='page')
+    st.radio('Go to', options=[
+             'Editor', 'History', 'Tone of Voice Admin'], label_visibility='collapsed', key='page')
 
 # Route to screens
 page = st.session_state.get('page', 'Editor')
