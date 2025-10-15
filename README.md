@@ -1,4 +1,4 @@
-## Decodo TOV Copywriter
+## TOV Copywriter
 
 ### Setup
 1. Create and activate a virtual env (optional).

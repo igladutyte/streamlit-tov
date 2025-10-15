@@ -10,7 +10,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 
 
 class AppConfig(BaseModel):
-    app_name: str = "Decodo TOV Copywriter"
+    app_name: str = "TOV Copywriter"
     data_dir: Path = PROJECT_ROOT / "data"
     db_file: Path = PROJECT_ROOT / "data" / "app_state.json"
 
