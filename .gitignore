@@ -1,0 +1,77 @@
+# macOS
+.DS_Store
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Unit test / coverage
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Type checking / tooling caches
+.mypy_cache/
+.pytype/
+.pyre/
+.ruff_cache/
+
+# Editors/IDE
+.idea/
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# dotenv
+.env
+.env.*
+!.env.example
+
+# Streamlit secrets (keep config files if any)
+.streamlit/secrets.toml
+
+# Cursor/agent local files
+.cursor/
+.agent/
+.agent-tools/
+
+# SQLite databases
+*.sqlite3
